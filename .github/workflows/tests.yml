@@ -31,7 +31,7 @@ jobs:
       - name: Run API Tests
         run: npm run test:api
         env:
-          API_BASE_URL: ${{ vars.API_BASE_URL }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
           CI: true
 
       - name: Upload API Test Report
@@ -65,7 +65,9 @@ jobs:
       - name: Run UI Tests
         run: npm run test:ui
         env:
-          UI_BASE_URL: ${{ vars.UI_BASE_URL }}
+          UI_BASE_URL: ${{ secrets.UI_BASE_URL }}
+          STANDARD_USER: ${{ secrets.STANDARD_USER }}
+          STANDARD_PASSWORD: ${{ secrets.STANDARD_PASSWORD }}
           HEADLESS: 'true'
           RECORD_VIDEO: 'false'
           SCREENSHOT_ON_PASS: 'false'
