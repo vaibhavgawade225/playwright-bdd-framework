@@ -1,0 +1,41 @@
+{
+  "name": "playwright-cucumber-hybrid-bdd-framework",
+  "version": "1.0.0",
+  "description": "Enterprise Unified UI + API BDD Automation Framework built with Playwright, Cucumber JS, JavaScript - Single Framework with Shared Config, Page Object Model, and Allure Reporting.",
+  "scripts": {
+    "pretest": "node -e \"const fs = require('fs'); if (fs.existsSync('reports')) fs.rmSync('reports', { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });\"",
+    "test": "cucumber-js",
+    "test:ui": "cucumber-js --tags @ui",
+    "test:api": "cucumber-js --tags @api",
+    "test:smoke": "cucumber-js --tags @smoke",
+    "test:regression": "cucumber-js --tags @regression",
+    "test:tag": "cucumber-js --tags",
+    "report": "node ui/src/utils/generateHtmlReport.js",
+    "report:allure": "allure generate reports/allure-results -o reports/allure-report --clean",
+    "allure:open": "allure open reports/allure-report",
+    "posttest": "npm run report"
+  },
+  "keywords": [
+    "playwright",
+    "cucumber",
+    "bdd",
+    "ui-automation",
+    "api-automation",
+    "allure-report",
+    "javascript",
+    "testing-framework"
+  ],
+  "author": "Vaibhav Gawade",
+  "license": "MIT",
+  "dependencies": {
+    "@cucumber/cucumber": "^10.9.0",
+    "@playwright/test": "^1.47.0",
+    "ajv": "^8.17.1",
+    "dotenv": "^16.4.5",
+    "multiple-cucumber-html-reporter": "^3.8.0"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.43.0",
+    "allure-cucumberjs": "^3.10.2"
+  }
+}

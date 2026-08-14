@@ -1,0 +1,8 @@
+{
+  "pageTitle": ".title",
+  "cartItem": ".cart_item",
+  "cartItemName": ".inventory_item_name",
+  "removeButton": "button:has-text('Remove')",
+  "checkoutButton": "#checkout",
+  "continueShoppingButton": "#continue-shopping"
+}

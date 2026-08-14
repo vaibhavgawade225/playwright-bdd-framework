@@ -1,0 +1,13 @@
+{
+  "firstNameInput": "#first-name",
+  "lastNameInput": "#last-name",
+  "postalCodeInput": "#postal-code",
+  "continueButton": "#continue",
+  "finishButton": "#finish",
+  "cancelButton": "#cancel",
+  "completeHeader": ".complete-header",
+  "errorMessage": "[data-test='error']",
+  "subtotalLabel": ".summary_subtotal_label",
+  "taxLabel": ".summary_tax_label",
+  "totalLabel": ".summary_total_label"
+}

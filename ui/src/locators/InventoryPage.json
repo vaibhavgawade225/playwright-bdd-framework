@@ -1,0 +1,17 @@
+{
+  "pageTitle": ".title",
+  "cartBadge": ".shopping_cart_badge",
+  "cartLink": ".shopping_cart_link",
+  "inventoryItem": ".inventory_item",
+  "inventoryItemName": ".inventory_item_name",
+  "inventoryItemPrice": ".inventory_item_price",
+  "addToCartButton": "button:has-text('Add to cart')",
+  "removeButton": "button:has-text('Remove')",
+  "sortSelect": ".product_sort_container",
+  "menuButton": "#react-burger-menu-btn",
+  "logoutLink": "#logout_sidebar_link",
+  "resetAppStateLink": "#reset_sidebar_link",
+  "twitterLink": ".social_twitter a",
+  "facebookLink": ".social_facebook a",
+  "linkedinLink": ".social_linkedin a"
+}

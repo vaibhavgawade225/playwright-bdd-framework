@@ -1,0 +1,80 @@
+name: Unified UI + API Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Weekly cron: Har Monday ko 6:00 AM UTC (11:30 AM IST) chalega
+    - cron: '0 6 * * 1'
+
+jobs:
+  api-tests:
+    name: Run API Tests
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run API Tests
+        run: npm run test:api
+        env:
+          API_BASE_URL: ${{ vars.API_BASE_URL }}
+          CI: true
+
+      - name: Upload API Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-reports
+          path: reports/
+          retention-days: 7
+
+  ui-tests:
+    name: Run UI Tests
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run UI Tests
+        run: npm run test:ui
+        env:
+          UI_BASE_URL: ${{ vars.UI_BASE_URL }}
+          HEADLESS: 'true'
+          RECORD_VIDEO: 'false'
+          SCREENSHOT_ON_PASS: 'false'
+          CI: true
+
+      - name: Upload UI Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-reports
+          path: reports/
+          retention-days: 7

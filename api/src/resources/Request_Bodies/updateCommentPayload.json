@@ -1,0 +1,6 @@
+{
+  "postId": 1,
+  "name": "Updated Comment Title",
+  "email": "updated@example.com",
+  "body": "Updated comment content for automated API regression."
+}
