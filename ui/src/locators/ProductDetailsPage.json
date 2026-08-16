@@ -1,0 +1,8 @@
+{
+  "productTitle": ".inventory_details_name",
+  "productPrice": ".inventory_details_price",
+  "productDesc": ".inventory_details_desc",
+  "addToCartButton": "button:has-text('Add to cart')",
+  "removeButton": "button:has-text('Remove')",
+  "backToProductsButton": "#back-to-products"
+}

@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Test Reports & Artifacts
+reports/
+test-results/
+playwright-report/
+
+# Environment files
+.env
+.env.local
+
+# Runtime generated data
+DealDetails.json
+
+# Logs
+*.log
+
+# IDE & System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
